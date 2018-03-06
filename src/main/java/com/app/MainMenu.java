@@ -37,7 +37,7 @@ public class MainMenu {
             if(x.isSelected())
             {
                 Thread.sleep(1000);
-                System.out.println("ok");}
+                System.out.println("Refresh is OK");}
             Thread.sleep(1000);
         }
 

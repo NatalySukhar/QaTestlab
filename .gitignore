@@ -1,2 +1,4 @@
-helloworld.xml
-.idea/
+# IntellijIdea files
+*.iml
+.idea
+out

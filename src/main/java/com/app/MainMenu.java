@@ -34,9 +34,7 @@ public class MainMenu {
             Thread.sleep(1000);
             driver.navigate().refresh();Thread.sleep(1000);
             Thread.sleep(1000);
-            String b=x.getText();
-            Thread.sleep(1000);
-            if(a.equals(b))
+            if(x.isSelected())
             {
                 Thread.sleep(1000);
                 System.out.println("ok");}

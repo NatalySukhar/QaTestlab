@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.List;
+import java.util.*;
 
 public class MainMenu {
 
@@ -23,23 +23,26 @@ public class MainMenu {
 
         By locator=By.className("maintab");
         List<WebElement> elements =driver.findElements(locator);
-
-        for(WebElement x : elements)
+        ArrayList<String> locators=new ArrayList<String>();
+       for(WebElement x : elements)
         {
-            Thread.sleep(1000);
-            x.click();
-            Thread.sleep(1000);
-            String a=x.getText();
-            System.out.println(a);
-            Thread.sleep(1000);
-            driver.navigate().refresh();Thread.sleep(1000);
-            Thread.sleep(1000);
-            if(x.isSelected())
-            {
+            locators.add(x.getText());}
+            for (String x: locators){
+
+            WebElement menu= driver.findElement(By.linkText(x));
+            menu.click();
+                System.out.println(x);
+                driver.navigate().refresh();
+                WebElement menuNew= driver.findElement(By.linkText(x));
+                if(menuNew.isEnabled())
+                {
+                    Thread.sleep(1000);
+                    System.out.println("Refresh is OK");}
                 Thread.sleep(1000);
-                System.out.println("Refresh is OK");}
-            Thread.sleep(1000);
-        }
+       }
+
+
+
 
 
 

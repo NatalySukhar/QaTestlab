@@ -17,10 +17,8 @@ public class MainMenu {
         WebElement passwdInput=driver.findElement(By.id("passwd"));
         passwdInput.sendKeys("Xcg7299bnSmMuRLp9ITw");
         WebElement okInput=driver.findElement(By.name("submitLogin"));
-        okInput.submit(); Thread.sleep(1000);
-        driver.navigate().to(" http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/index.php?controller=AdminDashboard&token=f57b9e0913a4757c6ba02314cf473896");
-        Thread.sleep(1000);
-
+        okInput.submit();
+        Thread.sleep(2000);
         By locator=By.className("maintab");
         List<WebElement> elements =driver.findElements(locator);
         ArrayList<String> locators=new ArrayList<String>();
@@ -31,19 +29,20 @@ public class MainMenu {
 
             WebElement menu= driver.findElement(By.linkText(x));
             menu.click();
-                System.out.println(x);
-                driver.navigate().refresh();
-                WebElement menuNew= driver.findElement(By.linkText(x));
-                if(menuNew.isEnabled())
+            Thread.sleep(2000);
+            String title= driver.findElement(By.className("breadcrumb")).getText();
+            System.out.println( title);
+            driver.navigate().refresh();Thread.sleep(1000);
+                String titleNew= driver.findElement(By.className("breadcrumb")).getText();
+                if(title.equals(titleNew))
                 {
-                    Thread.sleep(1000);
+
                     System.out.println("Refresh is OK");}
-                Thread.sleep(1000);
+
        }
 
 
-
-
+        driver.quit();
 
 
     }

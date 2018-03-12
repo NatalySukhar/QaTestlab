@@ -14,12 +14,12 @@ public class Login {
         passwdInput.sendKeys("Xcg7299bnSmMuRLp9ITw");
         WebElement okInput=driver.findElement(By.name("submitLogin"));
         okInput.submit();
-        Thread.sleep(1000);
-        driver.navigate().to(" http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/index.php?controller=AdminDashboard&token=f57b9e0913a4757c6ba02314cf473896");
+        Thread.sleep(2000);
         WebElement avatarLink=driver.findElement(By.id("header_employee_box"))   ;
         avatarLink.click();
         WebElement exitButton=driver.findElement(By.id("header_logout"));
         exitButton.click();
+        driver.quit();
 
     }
 
